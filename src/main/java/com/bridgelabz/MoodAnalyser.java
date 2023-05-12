@@ -25,7 +25,7 @@ public class MoodAnalyser {
          * UC2: Handle Exception if User Provides Invalid Mood(try-catch).
          */
         try {
-            if (message.contains("I am in sad mood")) {
+            if (message.contains("I am in Sad Mood")) {
                 return "SAD";
             } else
                 return "HAPPY";
