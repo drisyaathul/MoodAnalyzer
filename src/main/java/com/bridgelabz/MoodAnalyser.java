@@ -22,10 +22,15 @@ public class MoodAnalyser {
     public String analyseMood() {
         /*
          * UC1: Call Analyse Mood function with message as parameter and return Happy or Sad mood.
+         * UC2: Handle Exception if User Provides Invalid Mood(try-catch).
          */
-        if (message.contains("Sad")) {
-            return "SAD";
-        }else
+        try {
+            if (message.contains("I am in sad mood")) {
+                return "SAD";
+            } else
+                return "HAPPY";
+        } catch (NullPointerException e) {
             return "HAPPY";
+        }
     }
 }

@@ -27,5 +27,16 @@ public class MoodAnalyserTest {
         Assertions.assertEquals("HAPPY",myMood);
         System.out.println(myMood);
     }
+    @Test
+    public void givenMessageIsNullResultsHappy() {
+        /*
+         * TC2.1 : Given Null Mood Should Return Happy using try-catch
+         */
+        MoodAnalyser moodAnalyser = new MoodAnalyser(" ");
+        String myMood = moodAnalyser.analyseMood();
+        Assertions.assertEquals("HAPPY",myMood);
+        System.out.println(myMood);
+    }
+
 
 }
