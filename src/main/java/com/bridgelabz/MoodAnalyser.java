@@ -19,18 +19,20 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-    public String analyseMood() {
+    public String analyseMood() throws MoodAnalysisException {
         /*
          * UC1: Call Analyse Mood function with message as parameter and return Happy or Sad mood.
          * UC2: Handle Exception if User Provides Invalid Mood(try-catch).
          */
         try {
-            if (message.contains("I am in Sad Mood")) {
+            if (message.equals("")) {
+                throw new MoodAnalysisException("Empty Mood");
+        }else if (message.contains("I am in Sad Mood")) {
                 return "SAD";
             } else
                 return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalysisException("HAPPY");
         }
     }
 }

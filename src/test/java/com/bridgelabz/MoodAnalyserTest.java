@@ -8,7 +8,7 @@ public class MoodAnalyserTest {
      * Refactor: analyseMood method will change to support no parameters and use message Field defined for the Class.
      */
     @Test
-    public void givenMessageWhenMoodResultsSad() {
+    public void givenMessageWhenMoodResultsSad() throws MoodAnalysisException{
         /*
          * TC1.1 : analyseMood method can just return SAD to pass this Test Case
          */
@@ -18,7 +18,7 @@ public class MoodAnalyserTest {
         System.out.println(myMood);
     }
     @Test
-    public void givenMessageWhenMoodResultHappy() {
+    public void givenMessageWhenMoodResultHappy() throws MoodAnalysisException {
         /*
          * TC1.2 : analyseMood method can just return HAPPY to pass this Test Case
          */
@@ -28,7 +28,7 @@ public class MoodAnalyserTest {
         System.out.println(myMood);
     }
     @Test
-    public void givenMessageIsNullResultsHappy() {
+    public void givenMessageIsNullResultsHappy() throws MoodAnalysisException {
         /*
          * TC2.1 : Given Null Mood Should Return Happy using try-catch
          */
