@@ -6,7 +6,7 @@ public class MoodAnalyser {
         /*
          * UC1: Call Analyse Mood function with message as parameter and return Happy or Sad mood.
          */
-        if (message.contains("Sad")) {
+        if (message.contains("I am in Sad Mood")) {
             return "SAD";
         }else
             return "HAPPY";
