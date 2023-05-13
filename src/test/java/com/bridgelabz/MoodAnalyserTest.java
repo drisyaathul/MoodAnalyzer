@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class MoodAnalyserTest {
     /*
-     * Refactor: analyseMood method will change to support no parameters and use message Field defined for the Class.
+     * Refactor: Using Custom Exception Mood
      */
     @Test
     public void givenMessageWhenMoodResultsSad() throws MoodAnalysisException{
@@ -28,13 +28,31 @@ public class MoodAnalyserTest {
         System.out.println(myMood);
     }
     @Test
-    public void givenMessageIsNullResultsHappy() throws MoodAnalysisException {
+    public void givenMessageIsNullResultsHappy() {
         /*
-         * TC2.1 : Given Null Mood Should Return Happy using try-catch
+            Using Enum (NULL,EMPTY) to differentiate the Mood Analysis Errors
          */
-        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String myMood = moodAnalyser.analyseMood();
-        Assertions.assertEquals("HAPPY",myMood);
-        System.out.println(myMood);
+        MoodAnalyser moodAnalyser = new MoodAnalyser("NULL");
+        try {
+            moodAnalyser.analyseMood();
+        }
+        catch (MoodAnalysisException e) {
+            Assertions.assertEquals(MoodAnalysisException.ExceptionType.NULL,e.getType());
+            System.out.println(e);
+        }
+    }
+    @Test
+    public void givenMessageIsEmptyResultsEmptyMood() {
+        /*
+            Using Enum (NULL,EMPTY) to differentiate the Mood Analysis Errors
+         */
+        MoodAnalyser moodAnalyser = new MoodAnalyser(" ");
+       try {
+           moodAnalyser.analyseMood();
+       }
+       catch (MoodAnalysisException e) {
+           Assertions.assertEquals(MoodAnalysisException.ExceptionType.EMPTY,e.getType());
+           System.out.println(e);
+       }
     }
 }
